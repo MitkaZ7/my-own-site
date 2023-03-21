@@ -23,4 +23,10 @@ module.exports = {
     watch: pathSrc + '/scss/**/*.scss',
     dest: pathDest + '/css'
   },
+  js: {
+    src: pathSrc + '/scripts/*.js',
+    watch: pathSrc + '/scripts/**/*.js',
+    dest: pathDest + '/scripts'
+  },
+
 }
