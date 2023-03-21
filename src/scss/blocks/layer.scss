@@ -1,0 +1,67 @@
+.layers {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.layer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: border-box;
+  will-change: transform;
+  z-index: 2;
+}
+
+.layer__caption {
+  /* letter-spacing: calc(var(--index) / 6); */
+  font-size: calc(var(--index) * 1.3);
+}
+
+.layers__title {
+  letter-spacing: calc(var(--index) / 2.8);
+  font-size: calc(var(--index)* 1.5);
+}
+
+.layers__base {
+  transform: translate3d(0, calc(var(--scrollTop) /1.6), 0);
+  z-index: 0;
+}
+
+.layers__middle {
+  transform: translate3d(0, calc(var(--scrollTop) /2.5), 0);
+}
+
+.layers__front {
+  transform: translate3d(0, calc(var(--scrollTop) /5.8), 0);
+}
+
+.layer__header {
+  z-index: 1;
+  transform: translate3d(0, calc(var(--scrollTop) /2), 0);
+  text-transform: uppercase;
+  will-change: transform;
+  font-weight: 900;
+  font-size: var(--index);
+  color: #fff;
+}
+
+
+/* .layers__base {
+  background-image: url(../../../img/picture.png);
+}
+
+.layers__middle {
+  background-image: url(../../../img/middle.png);
+}
+
+.layers__front {
+  background-image: url(../../../img/ground2.png);
+} */

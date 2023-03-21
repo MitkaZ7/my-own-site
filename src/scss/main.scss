@@ -1,0 +1,31 @@
+@font-face {
+  font-family: raleway_f;
+  src: url(../../fonts/raleway-regular.woff2);
+}
+
+@font-face {
+  font-family: raleway_black;
+  src: url(../../fonts/raleway-black.woff2);
+  font-weight: 900;
+}
+$base-font-color: green;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+:root {
+  --index: calc(1.5vw + 1vh);
+}
+
+body {
+  background-color: $base-font-color;
+  font-family: raleway_f, sans-serif;
+  color: $base-font-color;
+}
+@import 'blocks/layer.scss';
+@import 'blocks/article.scss';
+@import 'blocks/header.scss';
+@import 'blocks/footer.scss';
+
