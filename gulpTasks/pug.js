@@ -9,11 +9,14 @@ const app = require('../config/app.js');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const gulpPug = require('gulp-pug');
+const webpHtml = require('gulp-webp-html');
+
 
 const pug = () => {
   return src(path.pug.src)
     .pipe(plumber())
     .pipe(gulpPug())
+    .pipe(webpHtml())
     .pipe(dest(path.pug.dest))
 
 }

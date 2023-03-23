@@ -13,6 +13,7 @@ const cssPrefixier = require('gulp-autoprefixer');
 const cssMinify = require('gulp-csso');
 const styleRename = require('gulp-rename');
 const size = require('gulp-size');
+const webpCss = require('gulp-webp-css');
 const css = () => {
   return src(path.css.src, {sourcemaps: true})
     .pipe(plumber())
@@ -24,6 +25,7 @@ const css = () => {
     .pipe(styleRename({ suffix: ".min" }))
     .pipe(cssMinify())
     .pipe(size({ title: 'main.min.css' }))
+    .pipe(webpCss())
     .pipe(dest(path.css.dest, { sourcemaps: true }))
 
 }

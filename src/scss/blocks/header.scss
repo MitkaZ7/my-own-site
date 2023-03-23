@@ -5,10 +5,10 @@
 .header::after {
   content: '';
   position: absolute;
-  bottom: calc(var(--index) * -6);
+  bottom: calc($index * -6);
   z-index: 100;
   width: 100%;
-  height: calc(var(--index) * 16);
+  height: calc($index * 16);
   background-image: url(../img/stripe7.png);
   background-repeat: no-repeat;
   background-size: cover;

@@ -12,6 +12,7 @@ const cssMinify = require('gulp-csso');
 const styleRename = require('gulp-rename');
 const size = require('gulp-size');
 const sass = require('gulp-sass')(require('sass'));
+const webpCss = require('gulp-webp-css');
 
 const scss = () => {
   return src(path.scss.src, {sourcemaps: true})
@@ -23,6 +24,7 @@ const scss = () => {
     .pipe(styleRename({ suffix: ".min" }))
     .pipe(cssMinify())
     .pipe(size({ title: 'main.min.css' }))
+    .pipe(webpCss())
     .pipe(dest(path.scss.dest, { sourcemaps: true }))
 
 }

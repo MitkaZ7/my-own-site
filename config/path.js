@@ -28,5 +28,15 @@ module.exports = {
     watch: pathSrc + '/scripts/**/*.js',
     dest: pathDest + '/scripts'
   },
+  img: {
+    src: pathSrc + '/img/*.{png,jpeg,jpg,gif,svg}',
+    watch: pathSrc + '/img/**/*.{png,jpeg,jpg,gif,svg}',
+    dest: pathDest + '/img'
+  },
+  font: {
+    src: pathSrc + '/fonts/*.{eot,ttf,otf,otc,ttc,woff,woff2}',
+    watch: pathSrc + '/fonts/**/*.{eot,ttf,otf,otc,ttc,woff,woff2}',
+    dest: pathDest + '/fonts'
+  }
 
 }

@@ -1,6 +1,15 @@
+let scrollPosition = 0;
+
+
+
+
 window.addEventListener('scroll', (evt) => {
-    document.body.style.cssText = `--scrollTop: ${this.scrollY}px`
+  scrollPosition = window.scrollY;
+  console.log(scrollPosition);
+  document.body.style.cssText = `--scrollTop: ${scrollPosition}px`
 })
+
+
 const quoteElement = document.querySelector('.quote');
 function getQuote() {
     fetch('https://api.kanye.rest')

@@ -54,14 +54,14 @@
 }
 
 
-/* .layers__base {
-  background-image: url(../../../img/picture.png);
+.layers__base {
+  background-image: url(../img/stripe7.png);
 }
 
 .layers__middle {
-  background-image: url(../../../img/middle.png);
+  background-image: url(../img/middle.png);
 }
 
 .layers__front {
-  background-image: url(../../../img/ground2.png);
-} */
+  background-image: url(../img/ground2.png);
+}
