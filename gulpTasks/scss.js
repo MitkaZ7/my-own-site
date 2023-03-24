@@ -15,17 +15,17 @@ const sass = require('gulp-sass')(require('sass'));
 const webpCss = require('gulp-webp-css');
 
 const scss = () => {
-  return src(path.scss.src, {sourcemaps: true})
+  return src(path.scss.src, {sourcemaps: app.isDev })
     .pipe(plumber())
     .pipe(sass())
     .pipe(cssPrefixier())
     .pipe(size({title: 'main.css'}))
-    .pipe(dest(path.scss.dest, { sourcemaps: true }))
+    .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }))
     .pipe(styleRename({ suffix: ".min" }))
     .pipe(cssMinify())
     .pipe(size({ title: 'main.min.css' }))
     .pipe(webpCss())
-    .pipe(dest(path.scss.dest, { sourcemaps: true }))
+    .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }))
 
 }
 module.exports = scss;

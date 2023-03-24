@@ -11,11 +11,11 @@ const babel = require('gulp-babel');
 const webpackStream = require('webpack-stream');
 
 const js = () => {
-  return src(path.js.src, {sourcemaps: true})
+  return src(path.js.src, { sourcemaps: app.isProd })
     .pipe(plumber())
     .pipe(babel())
     .pipe(webpackStream(app.webpack))
-    .pipe(dest(path.js.dest, { sourcemaps: true }))
+    .pipe(dest(path.js.dest, { sourcemaps: app.isProd }))
 
 }
 module.exports = js;

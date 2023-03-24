@@ -1,6 +1,7 @@
 const { watch, series, parallel} = require('gulp');
 // конфиг
 const path = require('./config/path');
+const app = require('./config/app.js');
 //плагины
 const browserSync = require('browser-sync').create();
 
@@ -22,6 +23,7 @@ const img = require('./gulpTasks/img.js');
 const font = require('./gulpTasks/font.js');
 
 
+
 // наблюдатель
 const watcher = () => {
   watch(path.pug.watch, pug).on('all', browserSync.reload);
@@ -31,6 +33,14 @@ const watcher = () => {
   watch(path.font.watch, font).on('all', browserSync.reload);
 
 }
+const build = series(
+  clear,
+  parallel(pug, scss, js, img, font)
+);
+const dev = series(
+  build,
+  parallel(watcher, server)
+)
 
 exports.pug = pug;
 exports.scss = scss;
@@ -40,8 +50,6 @@ exports.font = font;
 
 
 // сборка
-exports.dev = series(
-  clear,
-  parallel(pug,scss,js,img, font),
-  parallel(watcher, server)
-)
+exports.default = app.isProd ? build : dev;
+
+

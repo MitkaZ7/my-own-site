@@ -15,18 +15,18 @@ const styleRename = require('gulp-rename');
 const size = require('gulp-size');
 const webpCss = require('gulp-webp-css');
 const css = () => {
-  return src(path.css.src, {sourcemaps: true})
+  return src(path.css.src, { sourcemaps: app.isProd })
     .pipe(plumber())
     .pipe(concat('main.css'))
     .pipe(cssImport())
     .pipe(cssPrefixier())
     .pipe(size({title: 'main.css'}))
-    .pipe(dest(path.css.dest, { sourcemaps: true }))
+    .pipe(dest(path.css.dest, { sourcemaps: app.isProd }))
     .pipe(styleRename({ suffix: ".min" }))
     .pipe(cssMinify())
     .pipe(size({ title: 'main.min.css' }))
     .pipe(webpCss())
-    .pipe(dest(path.css.dest, { sourcemaps: true }))
+    .pipe(dest(path.css.dest, { sourcemaps: app.isProd }))
 
 }
 module.exports = css;
