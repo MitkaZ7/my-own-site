@@ -1,6 +1,7 @@
 global.$ = {
   gulp: require('gulp'),
   plugins: require('gulp-load-plugins')(),
+  sass: require('gulp-sass')(require('sass')),
   browserSync: require('browser-sync').create(),
   // конфигурация
   path: require('./config/path'),
