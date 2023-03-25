@@ -1,19 +1,5 @@
 // обработка css
-// const { src, dest } = require('gulp');
 
-// // конфиг
-// const path = require('../config/path.js');
-// const app = require('../config/app.js');
-//плагины
-// const plumber = require('gulp-plumber');
-// const notify = require('gulp-notify');
-// const concat = require('gulp-concat');
-// const cssImport = require('gulp-cssimport');
-// const cssPrefixier = require('gulp-autoprefixer');
-// const cssMinify = require('gulp-csso');
-// const styleRename = require('gulp-rename');
-// const size = require('gulp-size');
-// const webpCss = require('gulp-webp-css');
 const css = () => {
   return $.gulp.src($.path.css.src, { sourcemaps: $.app.isProd })
     .pipe($.plugins.plumber())
@@ -27,6 +13,6 @@ const css = () => {
     .pipe($.plugins.size({ title: 'main.min.css' }))
     .pipe($.plugins.webpCss())
     .pipe($.gulp.dest($.path.css.dest, { sourcemaps: $.app.isProd }))
-
+    .pipe($.browserSync.stream());
 }
 module.exports = css;
