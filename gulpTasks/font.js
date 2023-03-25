@@ -13,13 +13,13 @@ const ttfToWoff2 = require('gulp-ttf2woff2');
 
 
 const font = () => {
-  return src(path.font.src)
-    .pipe(plumber())
-    .pipe(gulpNewer(path.font.dest))
-    .pipe(gulpFonter(app.fonter))
-    .pipe(dest(path.font.dest))
-    .pipe(ttfToWoff2())
-    .pipe(dest(path.font.dest))
-
+  return $.gulp.src($.path.font.src)
+    .pipe($.plugins.plumber())
+    .pipe($.plugins.newer($.path.font.dest))
+    .pipe($.plugins.fonterUnx($.app.fonter))
+    .pipe($.gulp.dest($.path.font.dest))
+    .pipe($.plugins.ttf2woff2())
+    .pipe($.gulp.dest($.path.font.dest))
+    .pipe($.browserSync.stream());
 }
 module.exports = font;
