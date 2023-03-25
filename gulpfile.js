@@ -1,17 +1,11 @@
-const { watch, series, parallel} = require('gulp');
-// конфиг
-const path = require('./config/path');
-const app = require('./config/app.js');
-//плагины
-const browserSync = require('browser-sync').create();
+global.$ = {
+  gulp: require('gulp'),
+  plugins: require('gulp-load-plugins')(),
+  browserSync: require('browser-sync').create(),
+  // конфигурация
+  path: require('./config/path'),
+  app: require('./config/app.js')
 
-// сервер
-const server = () => {
-  browserSync.init({
-    server: {
-      baseDir: path.root
-    }
-  })
 }
 //задачи
 const clear = require('./gulpTasks/clear.js');
@@ -21,25 +15,30 @@ const scss = require('./gulpTasks/scss.js');
 const js = require('./gulpTasks/js.js');
 const img = require('./gulpTasks/img.js');
 const font = require('./gulpTasks/font.js');
-
-
-
-// наблюдатель
+// сервер
+const server = () => {
+  browserSync.init({
+    server: {
+      baseDir: $.path.root
+    }
+  })
+}
+// наблюдение
 const watcher = () => {
-  watch(path.pug.watch, pug).on('all', browserSync.reload);
-  watch(path.scss.watch, scss).on('all', browserSync.reload);
-  watch(path.js.watch, js).on('all', browserSync.reload);
-  watch(path.img.watch, img).on('all', browserSync.reload);
-  watch(path.font.watch, font).on('all', browserSync.reload);
+  watch($.path.pug.watch, pug).on('all', browserSync.reload);
+  watch($.path.scss.watch, scss).on('all', browserSync.reload);
+  watch($.path.js.watch, js).on('all', browserSync.reload);
+  watch($.path.img.watch, img).on('all', browserSync.reload);
+  watch($.path.font.watch, font).on('all', browserSync.reload);
 
 }
-const build = series(
+const build = $.gulp.series(
   clear,
-  parallel(pug, scss, js, img, font)
+  $.gulp.parallel(pug, scss, js, img, font)
 );
-const dev = series(
+const dev = $.gulp.series(
   build,
-  parallel(watcher, server)
+  $.gulp.parallel(watcher, server)
 )
 
 exports.pug = pug;
@@ -50,6 +49,6 @@ exports.font = font;
 
 
 // сборка
-exports.default = app.isProd ? build : dev;
+exports.default = $.app.isProd ? build : dev;
 
 
