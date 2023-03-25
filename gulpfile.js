@@ -5,7 +5,7 @@ global.$ = {
   browserSync: require('browser-sync').create(),
   // конфигурация
   path: require('./config/path'),
-  app: require('./config/app.js')
+  app: require('./config/app.js'),
 
 }
 //задачи

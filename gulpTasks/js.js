@@ -1,21 +1,12 @@
-// обработка pug
-const { src, dest } = require('gulp');
-
-// конфиг
-const path = require('../config/path.js');
-const app = require('../config/app.js');
-//плагины
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
-const babel = require('gulp-babel');
+// обработка javascript
 const webpackStream = require('webpack-stream');
 
 const js = () => {
-  return src(path.js.src, { sourcemaps: app.isProd })
-    .pipe(plumber())
-    .pipe(babel())
-    .pipe(webpackStream(app.webpack))
-    .pipe(dest(path.js.dest, { sourcemaps: app.isProd }))
+  return $.gulp.src($.path.js.src, { sourcemaps: $.app.isProd })
+    .pipe($.plugins.plumber())
+    .pipe($.plugins.babel())
+    .pipe(webpackStream($.app.webpack))
+    .pipe($.gulp.dest($.path.js.dest, { sourcemaps: $.app.isProd }))
 
 }
 module.exports = js;
