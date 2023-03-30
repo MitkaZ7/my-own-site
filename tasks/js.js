@@ -7,6 +7,6 @@ const js = () => {
     .pipe($.plugins.babel())
     .pipe(webpackStream($.app.webpack))
     .pipe($.gulp.dest($.path.js.dest, { sourcemaps: $.app.isProd }))
-
+    .pipe($.browserSync.stream());
 }
 module.exports = js;

@@ -1,9 +1,8 @@
 // обработка scss
-
 const scss = () => {
   return $.gulp.src($.path.scss.src, { sourcemaps: $.app.isDev })
     .pipe($.plugins.plumber())
-    .pipe($.sass())
+    // .pipe($.sass())
     .pipe($.plugins.autoprefixer())
     .pipe($.plugins.size({ title: 'main.css' }))
     .pipe($.gulp.dest($.path.scss.dest, { sourcemaps: $.app.isDev }))
@@ -12,6 +11,6 @@ const scss = () => {
     .pipe($.plugins.size({ title: 'main.min.css' }))
     .pipe($.plugins.webpCss())
     .pipe($.gulp.dest($.path.scss.dest, { sourcemaps: $.app.isDev }))
-
+    .pipe($.browserSync.stream());
 }
 module.exports = scss;
