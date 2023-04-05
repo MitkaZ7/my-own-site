@@ -3,18 +3,19 @@
   "version": "1.0.0",
   "description": "my own parallax demo site",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "gulp",
     "build": "gulp --production"
   },
-  "browserslist": [
-    "last 3 versions"
-  ],
   "babel": {
     "presets": [
       "@babel/preset-env"
     ]
   },
+  "browserslist": [
+    "last 3 versions"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -24,8 +25,9 @@
   "devDependencies": {
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
+    "@babel/register": "^7.21.0",
     "browser-sync": "^2.29.0",
-    "del": "^6.1.1",
+    "del": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
@@ -36,8 +38,7 @@
     "gulp-fonter": "^0.3.0",
     "gulp-fonter-unx": "^0.3.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-load-plugins": "^2.0.8",
+    "gulp-imagemin": "^8.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
@@ -49,7 +50,7 @@
     "gulp-webp": "^4.0.1",
     "gulp-webp-css": "^1.1.0",
     "gulp-webp-html": "^1.0.2",
-    "require-dir": "^1.2.0",
+    "sass": "^1.60.0",
     "webpack": "^5.76.2",
     "webpack-stream": "^7.0.0"
   }

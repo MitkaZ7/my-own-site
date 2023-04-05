@@ -1,25 +1,22 @@
-// обработка pug
-const { src, dest } = require('gulp');
+// обработка шрифтов
+import gulp from 'gulp';
+import path from '../config/path.js';
+import app from '../config/app.js';
+import plumber from  'gulp-plumber';
+import notify from 'gulp-notify';
+import newer from 'gulp-newer';
+import ttf2woff2 from 'gulp-ttf2woff2';
+import fonterUnx from 'gulp-fonter-unx';
+import browserSync from 'browser-sync';
 
-// конфиг
-const path = require('../config/path.js');
-const app = require('../config/app.js');
-//плагины
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
-const gulpNewer = require('gulp-newer');
-const gulpFonter = require('gulp-fonter-unx');
-const ttfToWoff2 = require('gulp-ttf2woff2');
-
-
-const font = () => {
-  return $.gulp.src($.path.font.src)
-    .pipe($.plugins.plumber())
-    .pipe($.plugins.newer($.path.font.dest))
-    .pipe($.plugins.fonterUnx($.app.fonter))
-    .pipe($.gulp.dest($.path.font.dest))
-    .pipe($.plugins.ttf2woff2())
-    .pipe($.gulp.dest($.path.font.dest))
-    .pipe($.browserSync.stream());
+export default () => {
+  return gulp.src(path.font.src)
+    .pipe(plumber())
+    .pipe(newer(path.font.dest))
+    .pipe(fonterUnx(app.fonter))
+    .pipe(gulp.dest(path.font.dest))
+    .pipe(ttf2woff2())
+    .pipe(gulp.dest(path.font.dest))
+    .pipe(browserSync.stream());
 }
-module.exports = font;
+

@@ -1,7 +1,7 @@
 const isProd = process.argv.includes('--production');
 const isDev = !isProd;
 
-module.exports = {
+const app = {
   isProd: isProd,
   isDev: isDev,
 
@@ -19,3 +19,5 @@ module.exports = {
   }
 
 }
+
+export default app;

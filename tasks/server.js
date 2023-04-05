@@ -1,9 +1,9 @@
 // сервер
-const server = () => {
+export default () => {
   $.browserSync.init({
     server: {
       baseDir: $.path.root
     }
   })
 }
-module.exports = server;
+

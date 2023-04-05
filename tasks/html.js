@@ -1,6 +1,6 @@
 // обработка html
 
-const html = () => {
+export default () => {
   return $.gulp.src($.path.html.src)
     .pipe($.plugins.plumber())
     .pipe($.plugins.fileInclude())
@@ -11,4 +11,4 @@ const html = () => {
     .pipe($.gulp.dest($.path.html.dest))
     .pipe($.browserSync.stream());
 }
-module.exports = html;
+
