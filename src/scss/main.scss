@@ -4,6 +4,7 @@ $scrollTop: 0;
 @font-face {
   font-family: raleway_f;
   src: url(../fonts/raleway-regular.woff2);
+  font-weight: 700;
 }
 
 @font-face {
@@ -26,9 +27,10 @@ $scrollTop: 0;
 body {
   font-family: raleway_f, sans-serif;
 }
-// @import './colors.scss';
+@import './colors.scss';
 @import 'blocks/layer.scss';
-@import 'blocks/article.scss';
+@import 'blocks/stack-section.scss';
 @import 'blocks/header.scss';
+@import 'blocks/menu.scss';
 @import 'blocks/footer.scss';
 
