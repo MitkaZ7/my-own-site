@@ -10,22 +10,20 @@
   z-index: 2;
 }
 
-
-
 .layers__base {
   background-image: url(../img/layer-main.png);
-  transform: translate3d(0, calc(var(--scrollTop) /1.6), 0);
+  transform: translate3d(0, calc($scrollTop /1.6), 0);
   z-index: 0;
 }
 
 .layers__middle {
   // background-image: url(../img/layer-middle.png);
-  transform: translate3d(0, calc(var(--scrollTop) /2.5), 0);
+  transform: translate3d(0, calc($scrollTop /2.5), 0);
 }
 
 .layers__front {
   // background-image: url(../img/ground2.png);
-  transform: translate3d(0, calc(var(--scrollTop) /5.8), 0);
+  transform: translate3d(0, calc($scrollTop /5.8), 0);
 
 
 }

@@ -2,19 +2,43 @@
   min-height: 100vh;
   background-size: cover;
   background-position: top;
-  background-color: black;
+  margin-top: 150px;
   // background-image: url(../img/michele-purin.jpg);
   display: flex;
   flex-direction: column;
+  &__galery {
+    display: flex;
+    > * {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+    }
+  }
 
 
+}
 
-  color: white;
+.galery__logo {
+    // background-color: red;
+    background-image: url(../../img/css-3.svg);
+
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 200px;
+
 }
 .stack-section__header {
   margin: 40px 0 0 50px;
   text-transform: uppercase;
   z-index: 999;
+  span {
+    color: $accent-color;
+  }
 }
 // .button {
 //   width: 200px;

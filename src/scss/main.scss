@@ -1,5 +1,14 @@
-$index:  calc(1.5vw + 1vh);
+
+$index:  calc(1.3vw + 1vh);
 $scrollTop: 0;
+$gallery-gap: calc($index * 5);
+@import './colors.scss';
+@import 'blocks/layer.scss';
+@import 'blocks/stack-section.scss';
+@import 'blocks/projects-section.scss';
+@import 'blocks/header.scss';
+@import 'blocks/menu.scss';
+@import 'blocks/footer.scss';
 
 @font-face {
   font-family: raleway_f;
@@ -26,11 +35,7 @@ $scrollTop: 0;
 
 body {
   font-family: raleway_f, sans-serif;
+  background-color: rgb(27, 26, 26);
+  color: $light;
 }
-@import './colors.scss';
-@import 'blocks/layer.scss';
-@import 'blocks/stack-section.scss';
-@import 'blocks/header.scss';
-@import 'blocks/menu.scss';
-@import 'blocks/footer.scss';
 

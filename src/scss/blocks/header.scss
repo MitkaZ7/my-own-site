@@ -44,11 +44,11 @@
 .header::after {
   content: '';
   position: absolute;
-  bottom: calc($index * -6);
+  bottom: calc($index * -1.7);
   z-index: 100;
   width: 100%;
-  height: calc($index * 9);
-  background-image: url(../img/stripe-thin.png);
+  height: calc($index * 3);
+  background-image: url(../../img/light-stripe.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

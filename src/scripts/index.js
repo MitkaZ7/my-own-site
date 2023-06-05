@@ -1,5 +1,9 @@
-let scrollPosition = 0;
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import { ScrollSmoother } from 'gsap/ScrollSmoother.js';
 
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+let scrollPosition = 0;
 window.addEventListener('scroll', (evt) => {
   scrollPosition = window.scrollY;
   // console.log(scrollPosition);
