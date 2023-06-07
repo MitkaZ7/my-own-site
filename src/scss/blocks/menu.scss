@@ -1,12 +1,11 @@
 .menu {
-  position: absolute;
+
   z-index: 999;
   font-size: calc($index * 0.5);
   font-weight: 900;
-  bottom: 40px;
-  right: 50px;
+  position: sticky;
   width: 100%;
-
+  margin-right: 50px;
   &__list {
     text-transform: uppercase;
 

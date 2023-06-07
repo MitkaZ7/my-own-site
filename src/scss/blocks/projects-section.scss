@@ -15,7 +15,7 @@
     margin-top: 50px;
   }
   &__galery {
-    padding: calc($index * 4) 0;
+    padding: calc($index * 5) 0;
     display: flex;
     > * {
         flex: 1;
@@ -27,7 +27,7 @@
   }
 }
 .galery__left {
-  margin-top: calc($gallery-gap * 2.7);
+  margin-top: calc($gallery-gap * -.3);
 }
 
 .galery__right  .galery__item {

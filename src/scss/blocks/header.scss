@@ -1,5 +1,5 @@
 .header {
-  position: relative;
+
   display: flex;
   flex-direction: column;
   // justify-content: center;
@@ -47,7 +47,7 @@
   bottom: calc($index * -1.7);
   z-index: 100;
   width: 100%;
-  height: calc($index * 3);
+  height: calc($index * 4);
   background-image: url(../../img/light-stripe.png);
   background-repeat: no-repeat;
   background-size: cover;
