@@ -1,8 +1,8 @@
 .header {
-
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
+
 }
 .header__layers {
   height: 100vh;
@@ -14,7 +14,7 @@
   position: relative;
 }
 .header__titles {
-  z-index: 1;
+  z-index: 999;
   transform: translate3d(0, calc(var(--scrollTop) /2), 0);
   text-transform: uppercase;
   text-align:  left;
@@ -23,6 +23,7 @@
   font-size: $index;
   color: #fff;
   margin-left: 50px;
+  opacity: 1;
 }
 .header__title {
   letter-spacing: calc($index / 6);
@@ -41,16 +42,16 @@
   color: $accent-color;
   font-weight: 100;
 }
-.header::after {
-  content: '';
-  position: absolute;
-  bottom: calc($index * -1.7);
-  z-index: 100;
-  width: 100%;
-  height: calc($index * 4);
-  background-image: url(../../img/light-stripe.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+// .header::after {
+//   content: '';
+//   position: absolute;
+//   bottom: calc($index * -1.7);
+//   z-index: 100;
+//   width: 100%;
+//   height: calc($index * 4);
+//   background-image: url(../../img/light-stripe.png);
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
 
-}
+// }
