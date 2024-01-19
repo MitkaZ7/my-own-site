@@ -34,7 +34,7 @@ const path  = {
     dest: pathDest + '/img'
   },
   font: {
-    src: pathSrc + '/fonts/*.{eot,ttf,otf,otc,ttc,woff,woff2}',
+    src: pathSrc + '/fonts/**/*.{eot,ttf,otf,otc,ttc,woff,woff2}',
     watch: pathSrc + '/fonts/**/*.{eot,ttf,otf,otc,ttc,woff,woff2}',
     dest: pathDest + '/fonts'
   }

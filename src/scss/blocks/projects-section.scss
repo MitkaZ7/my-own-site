@@ -1,7 +1,10 @@
 .projects-section {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  position: relative;
+    /* Добавьте эту строку */
+    width: 100%;
+    /* Добавьте эту строку */
   &__header {
     position: relative;
     z-index: 3;
@@ -9,14 +12,19 @@
     text-transform: uppercase;
   }
   &__subtitle {
-    color: $accent-color;
+    color: $subtitles-color;
   }
   &__container {
     margin-top: 50px;
   }
   &__galery {
-    padding: calc($index * 5) 0;
+    padding: calc($index * 2) 0;
     display: flex;
+    // position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100vw;
+    //   height: 100vh;
     > * {
         flex: 1;
         display: flex;
@@ -36,7 +44,7 @@
 }
 
 .galery__item {
-    max-width: calc($index * 15 );
+    max-width: calc($index * 13 );
     margin-bottom: $gallery-gap;
     border-radius: 8px;
     // position: relative;
@@ -57,16 +65,15 @@
 // }
 .galery__text-block {
   position: relative;
-  color: $accent-color;
+  color: $subtitles-color;
 }
 .galery__text-block-header {
-
   font-size: 2rem;
   line-height: 2.4rem;
 }
 
 .galery__text-block-list {
-  color: $light;
+  color: $text-color;
   list-style: none;
   line-height: 1.75rem;
   // > li::before {

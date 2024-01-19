@@ -8,50 +8,66 @@
   height: 100vh;
   display: flex;
   align-items: center;
-
+  flex-direction: column;
   text-align: center;
   overflow: hidden;
   position: relative;
 }
 .header__titles {
   z-index: 999;
-  transform: translate3d(0, calc(var(--scrollTop) /2), 0);
+  transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
   text-transform: uppercase;
-  text-align:  left;
+  font-size: calc($index * 1.7);
+  // font-size: $index;
+  color: $text-color;
+  // margin-left: 50px;
   will-change: transform;
-  font-weight: 900;
-  font-size: $index;
-  color: #fff;
-  margin-left: 50px;
   opacity: 1;
+  max-width: 380px;
+  margin-top: 220px;
+  margin-right: auto;
+  margin-left: 50px;
+  text-align: left;
+  @media screen and (max-width: 768px) {
+    max-width: 225px;
+  }
+    @media screen and (max-width: 390px) {
+      max-width: 170px;
+    }
 }
 .header__title {
-  letter-spacing: calc($index / 6);
+  letter-spacing: calc($index / 8);
   font-size: calc($index * 1.3);
-
+  // @media screen and (max-width: 390px) {
+  //     font-size: calc($index * 2.3);
+  // }
 
 }
 
 .header__subtitle {
   letter-spacing: calc($index / 2.8);
-  font-size: calc($index * 1.5);
-  max-width: 400px;
+  // font-size: calc($index * 1.5);
+
+  // @media screen and (max-width: 390px) {
+  //     font-size: calc($index * 2.3);
+  //   }
 
 }
 .header__subtitle-accent {
   color: $accent-color;
   font-weight: 100;
+  font-family: raleway_black, serif;
 }
-// .header::after {
-//   content: '';
-//   position: absolute;
-//   bottom: calc($index * -1.7);
-//   z-index: 100;
-//   width: 100%;
-//   height: calc($index * 4);
-//   background-image: url(../../img/light-stripe.png);
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: center;
+.header::after {
+  // content: '';
+  // position: absolute;
+  // bottom: calc($index * -2.3);
+  // z-index: 100;
+  // width: 100%;
+  // height: calc($index * 3);
+  // background-image: url(../../img/bg-stripe-bl.png);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: center;
 
-// }
+}

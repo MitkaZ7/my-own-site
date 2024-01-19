@@ -1,12 +1,13 @@
 .menu {
   z-index: 999;
-  font-size: calc($index * 0.5);
-  font-weight: 900;
+  // font-family: raleway_black, serif;
+  font-size: calc($index * 0.6);
   width: fit-content;
   position: fixed;
   display: flex;
   bottom: 50px;
   right: 50px;
+  color: $text-color;
   &__list {
     text-transform: uppercase;
 
@@ -17,6 +18,24 @@
   }
      &__item {
        margin-right: 15px;
+       a {
+        text-decoration: none;
+        color: rgba(255,255,255, .4);
+          span {
+            position: relative;
+          }
+          span:before {
+            width: 0;
+            color: $text-color;
+            overflow: hidden;
+            position: absolute;
+            content: attr(data-text);
+            transition: all .4s cubic-bezier(0.84, 0, 0.08, 0.99);
+          }
+       }
+       span:hover:before {
+        width: 100%;
+       }
      }
 
 }

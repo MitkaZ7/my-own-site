@@ -1,4 +1,3 @@
-// обработка scss
 import gulp from 'gulp';
 import path from '../config/path.js';
 import app from '../config/app.js';
@@ -7,7 +6,7 @@ import size from 'gulp-size';
 import plumber from 'gulp-plumber';
 import webpCss from 'gulp-webp-css';
 import browserSync from 'browser-sync';
-import dartSass from 'sass';
+import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
 import csso from 'gulp-csso';
