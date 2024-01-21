@@ -1,26 +1,32 @@
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
+const galeryItemsLeft = gsap.utils.toArray('.galery__left .galery__item');
+const galeryItemRight = gsap.utils.toArray('.galery__right .galery__item');
+const sectionHeaders = gsap.utils.toArray('.section__header');
 
-
-const actionNav = gsap.to('.menu', {
-  x: 500,
-  duration: 0.7,
-  ease: 'power2.in',
-  paused: true,
-
+sectionHeaders.forEach(item => {
+  gsap.to(item, {
+    x: 0,
+    // scrollTrigger: {
+    //   trigger: item,
+    //   scrub: true
+    // }
+  })
 });
 
+
+// меню hover
 ScrollTrigger.create({
   trigger: '.menu',
   start: 1,
   end: 99999,
   // markers: true,
-  onUpdate: ({progress,direction,isActive}) => {
+  onUpdate: ({ progress, direction, isActive }) => {
     if (direction == -1) {
       actionNav.reverse()
     }
-    if (direction == 1 ) {
+    if (direction == 1) {
       actionNav.play()
     }
     else if (direction == 1 && isActive == true) {
@@ -29,86 +35,161 @@ ScrollTrigger.create({
   }
 });
 
+if (ScrollTrigger.isTouch !== 1) {
 
+  // анимация заголовка рабочая--------
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      markers: true,
+      trigger: '.header__titles',
+      start: 'center 80%',
+      end: 'center ',
+      toggleActions: "play reverse play reverse",
 
-
-// анимация заголовка рабочая--------
-let tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.header__titles',
-    start: 'center 80%',
-    end: 'bottom 20%',
-    toggleActions: "play reverse play reverse",
-
-    scrub: true,
-  },
-})
-//==========
-tl.from('.header__titles', {
+      scrub: true,
+    },
+  })
+  //==========
+  tl.from('.header__titles', {
     opacity: 1, duration: 1,
-},1)
-tl.to('.header__titles', {
-  opacity: 0,
-  duration: 1
-})
-//===========
+  }, 1)
+  tl.to('.header__titles', {
+    opacity: 0,
+    duration: 1
+  })
+  //===========
 
-// ---------
+  // ---------
+  // tl.fromTo('.header',{opacity: 1}, {
+  //   opacity: 0,
 
-// let animation = anime({
-//   targets: '.header__titles',
-//   translateY: 300,
-//   opacity: 0,
-//   easing: 'easeInOutSine',
-//   autoplay: false
+  //   ScrollTrigger: {
+  //     markers: true,
+  //     trigger: '.header',
+  //     endTrigger: '.projects-section',
+  //     start: 'center',
+  //     end: '10',
+  //     scrub: true,
+  //   },
+
+
+  // });
+
+
+
+  galeryItemsLeft.forEach(item => {
+    tl.fromTo(item, {
+      opacity: 0,
+      x: -50,
+
+    },
+      {
+        opacity: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: item,
+          scrub: true,
+        }
+      })
+  });
+
+  galeryItemRight.forEach(item => {
+    tl.fromTo(item, {
+      opacity: 0,
+      x: 50,
+    },
+    {
+      opacity: 1,
+      x: 0,
+      scrollTrigger: {
+        trigger: item,
+        scrub: true,
+      }
+    })
+  });
+  tl.fromTo('.projects-section__header',{
+    opacity: 0
+  },{
+    opacity: 1,
+    // scrollTrigger: {
+    //   pin: true,
+    //   trigger: ".projects-section__header",
+    //   scrub: true,
+    //   endTrigger: '.stack-section__header',
+    // }
+  })
+  tl.fromTo('.projects-section',{},{
+    scrollTrigger: {
+      // markers: true,
+      // pin: true,
+      trigger: ".projects-section",
+      endTrigger: '.stack-section',
+      start: "top top", // when the top of the trigger hits the top of the viewport
+      // end: "bottom 50%",
+      scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      // snap: {
+      //   snapTo: "labels", // snap to the closest label in the timeline
+      //   duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+      //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+      //   ease: "power1.inOut", // the ease of the snap animation ("power3" by default)
+      // },
+    },
+  })
+
+}
+
+
+
+
+// let mainTl = gsap.timeline({
+//   // yes, we can add it to an entire timeline!
+  // scrollTrigger: {
+  //   // markers: true,
+  //   pin: true,
+  //   trigger: ".projects-section",
+  //   // endTrigger: '.stack-section',
+  //   start: "top top", // when the top of the trigger hits the top of the viewport
+  //   // end: "bottom 50%",
+  //   scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+  //   // snap: {
+  //   //   snapTo: "labels", // snap to the closest label in the timeline
+  //   //   duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+  //   //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+  //   //   ease: "power1.inOut", // the ease of the snap animation ("power3" by default)
+  //   // },
+  // },
 // });
 
-// window.onscroll = (e) => {
-//   animation.seek(window.pageYOffset);
-//   console.log(window.pageXOffset)
-// }
+
+const actionNav = gsap.to('.menu', {
+  x: 500,
+  duration: 0.7,
+  ease: 'power2.in',
+  paused: true,
+});
 
 
-// ScrollSmoother.create({
-//   wrapper: '.wrapper',
-//   content: '.main',
-//   smooth: 1.4,
-//   effects: true,
-// })
-// tl.to('.header__titles', {
-//   x: 1100,
-//   rotation: 90,
-//   duration: 4,
-//   ease: 'none'
-// })
+
+
+
+
 
 
 let scrollPosition = 0;
-// window.addEventListener('scroll', (evt) => {
-//   scrollPosition = window.scrollY;
-//   // console.log(scrollPosition);
-//   document.body.style.cssText = `--scrollTop: ${scrollPosition}px`
-// })
 
 
 
-const pinProjectsSection = gsap.to('.projects-section', {
-  duration: 0.5,
-  y: 0,
-  pin: true,
-  ease: 'none',
-  paused: true
-});
+export const technologyScroll = (arrayElements) => {
+  for (let i = 0; i < arrayElements.length; i++) {
+    let delay = i + 1;
+    const elemTL = gsap.timeline();
+    if (i !== 0) {
+      elemTL.from(arrayElements[i], 1, { y: '-100%', opacity: 0, ease: 'power2.out' })
+    }
+    if (i !== arrayElements.length) {
+      elemTL.to(arrayElements[i], 2, { y: '100%', opacity: 0, ease: 'power2.out' })
+    }
+    tl.add(elemTL, delay)
 
-ScrollTrigger.create({
-  trigger: '.projects-section',
-  start: 'top top',
-  end: () => '+=' + document.querySelector('.projects-section').offsetHeight,
-  markers: true,
-  onEnter: () => {
-    pinProjectsSection.play();
-  },
-  onLeave: () => {
-    pinProjectsSection.reverse();
   }
-});
+};

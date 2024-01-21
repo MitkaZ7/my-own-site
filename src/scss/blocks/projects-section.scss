@@ -1,14 +1,13 @@
 .projects-section {
   display: flex;
   flex-direction: column;
-  position: relative;
-    /* Добавьте эту строку */
-    width: 100%;
-    /* Добавьте эту строку */
+
   &__header {
     position: relative;
     z-index: 3;
     margin: 50px 0 0 50px;
+    padding-top: 40px;
+    padding-bottom: 100px;
     text-transform: uppercase;
   }
   &__subtitle {
@@ -44,7 +43,7 @@
 }
 
 .galery__item {
-    max-width: calc($index * 13 );
+    max-width: calc($index * 14 );
     margin-bottom: $gallery-gap;
     border-radius: 8px;
     // position: relative;
@@ -70,6 +69,7 @@
 .galery__text-block-header {
   font-size: 2rem;
   line-height: 2.4rem;
+  z-index: 10;
 }
 
 .galery__text-block-list {
