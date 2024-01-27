@@ -1,7 +1,9 @@
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
-//Main timeline
+// Main timeline
+// filter: 'drop-shadow(0 0 0.15em hsl(0, 100%, 52%)) drop-shadow(0 0 0.3em hsl(0, 100%, 50%)) drop-shadow(0 0 0.45em hsl(0, 70%, 40%)) drop-shadow(0 0 0.6em hsl(0, 70%, 40%)) drop-shadow(0 0 0.75em hsl(0, 70%, 30%)) drop-shadow(0 0 0.9em hsl(0, 70%, 30%))',
+
 const tl = gsap.timeline({ repeat: -1 });
 // Gallery animation constants:
 const galeryItemsLeft = gsap.utils.toArray('.galery__left .galery__item');
@@ -16,24 +18,25 @@ const shakaHandElements = document.querySelectorAll(
   "#middle_finger_shaka, #thumb_shaka, #index_finger_shaka"
 );
 // Animation logic:
-    // Graphic animation launch function:
+    // Graphic animation function:
 const graphicAnimation = () => {
   tl.add(() => { }, "+=1"); // At start of animation do nothing for 1 second
   tl.to(rockHandElements, { // Animate .to()
     stroke: "#000000", // Animate to black
+
     opacity: 0.2, // set opacity
     ease: "steps(1)" // animate, but it is instand in 1 step
   });
   tl.from(shakaHandElements, { // animate .from()
     stroke: "#000000", // Set color to black an animate to current color
     opacity: 0.2,
-    ease: "steps(1)"
+    ease: "steps(1)",
+
   }, "<"); // Animate at the same time as previous tween
   tl.add(() => { }, "+=1");  // At end of animation do nothing for 1 second
 
 }
-//------
-    // animation of header:
+    // Header animation:
 const headerAnimation = () => {
   tl.fromTo('.header', {
     opacity: 1,
@@ -52,7 +55,6 @@ const headerAnimation = () => {
   })
 
 }
-//------
 // Galery section animation:
 const galeryAnimation = () => {
   galeryItemsLeft.forEach(item => {
@@ -87,6 +89,7 @@ const galeryAnimation = () => {
       })
   });
 }
+// launc animations:
 export const launhAnimations = () => {
   graphicAnimation();
   headerAnimation();
