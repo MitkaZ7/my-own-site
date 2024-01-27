@@ -6,12 +6,16 @@
     position: relative;
     z-index: 3;
     margin: 50px 0 0 50px;
-    padding-top: 40px;
-    padding-bottom: 100px;
+    padding: 50px 0;
+
     text-transform: uppercase;
   }
-  &__subtitle {
+  &__title {
     color: $subtitles-color;
+    // font-family: neon;
+  }
+  &__subtitle {
+
   }
   &__container {
     margin-top: 50px;
@@ -35,6 +39,7 @@
 }
 .galery__left {
   margin-top: calc($gallery-gap * -.3);
+
 }
 
 .galery__right  .galery__item {
@@ -76,6 +81,7 @@
   color: $text-color;
   list-style: none;
   line-height: 1.75rem;
+  font-size: calc($index * 0.6);
   // > li::before {
   //   content: '-';
   //   color: $accent-color;

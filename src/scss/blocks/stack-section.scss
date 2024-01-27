@@ -23,7 +23,7 @@
 
       gap: 20px;
       letter-spacing: calc($index / 8);
-      font-size: calc($index);
+      font-size: calc($index * 0.6);
     }
     &__logo {
       margin: 0 50px;

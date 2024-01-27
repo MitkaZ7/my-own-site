@@ -11,7 +11,11 @@
 }
 
 .layers__base {
-  background-image: url(../img/annie-spratt-Tno1Zd3T6yY-unsplash.jpg);
+  // background-image: url(../img/annie-spratt-Tno1Zd3T6yY-unsplash.jpg);
+  // background-image: linear-gradient(0deg,
+  //       hsl(199deg 46% 31%) 0%,
+  //       hsl(199deg 46% 22%) 45%,
+  //       hsl(188deg 80% 2%) 100%);
   transform: translate3d(0, calc($scrollTop /1.6), 0);
   z-index: 0;
 }
