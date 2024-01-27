@@ -1,5 +1,4 @@
 // обработка css
-
 const css = () => {
   return $.gulp.src($.path.css.src, { sourcemaps: $.app.isProd })
     .pipe($.plugins.plumber())
@@ -15,4 +14,4 @@ const css = () => {
     .pipe($.gulp.dest($.path.css.dest, { sourcemaps: $.app.isProd }))
     .pipe($.browserSync.stream());
 }
-module.exports = css;
+export default css;

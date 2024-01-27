@@ -1,34 +1,91 @@
-$index:  calc(1.5vw + 1vh);
-$scrollTop: 0;
 
+$index:  calc(1.3vw + 1vh);
+$scrollTop: 0;
+$gallery-gap: calc($index * 2);
+@import './colors.scss';
+@import 'blocks/layer.scss';
+@import 'blocks/stack-section.scss';
+@import 'blocks/projects-section.scss';
+@import 'blocks/header.scss';
+@import 'blocks/menu.scss';
+@import 'blocks/footer.scss';
+@import 'blocks/switchers.scss';
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url(../fonts/IBM-Plex-Mono/ibm-plex-mono-700.woff2);
+  font-weight: 700;
+}
 @font-face {
   font-family: raleway_f;
   src: url(../fonts/raleway-regular.woff2);
+  font-weight: 700;
 }
 
 @font-face {
   font-family: raleway_black;
-  src: url(../fonts/raleway-black.woff2);
-  font-weight: 900;
+  src: url(../fonts/raleway-v28-latin-900.woff2);
+
+}
+
+@font-face {
+  font-family: tilt_neon;
+  src: url(../fonts/tilt-neon-v10-latin-regular.woff2);
 }
 @font-face {
-  font-family: Merriweather, serif;
-  src: url(../fonts/raleway-regular.woff2);
+  font-family: neon;
+  src: url(../fonts/Neoneon-2l.woff2);
+}
+@font-face {
+  font-family: ru_neon;
+  src: url(../fonts/neon_ru.woff2);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // color: $light;
+  // color: $text-color;
+
 }
 
 body {
-  font-family: raleway_f, sans-serif;
-}
-// @import './colors.scss';
-@import 'blocks/layer.scss';
-@import 'blocks/article.scss';
-@import 'blocks/header.scss';
-@import 'blocks/footer.scss';
+  font-family: 'IBM Plex Mono', serif;
+  background-color: $bg-color;
+  color: $text-color;
 
+}
+a:visited {
+  color: $text-color;
+}
+
+.wrapper {
+
+}
+
+.main {
+
+
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  // height: 100vh;
+//     position: fixed;
+//     width: 100vw;
+//     height: 100vh;
+//     top: 0;
+//     left: 0;
+//     background: linear-gradient(107.15deg, #2f2f2f 0, #226683 100%);
+}
+
+// .section:not(.header) {
+//   opacity: 0;
+//   visibility: hidden;
+//   transform: scale(1.2);
+// }
+
+.section__header {
+
+}

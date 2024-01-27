@@ -1,42 +1,54 @@
-global.$ = {
-  gulp: require('gulp'),
-  plugins: require('gulp-load-plugins')(),
-  sass: require('gulp-sass')(require('sass')),
-  browserSync: require('browser-sync').create(),
-  // конфигурация
-  path: require('../config/path'),
-  app: require('../config/app.js'),
-
+ import gulp from 'gulp';
+ import path from './config/path.js';
+ import app from './config/app.js';
+ import browserSync from 'browser-sync';
+// сервер
+const server = () => {
+  browserSync.init({
+    server: {
+      baseDir: path.root
+    }
+  })
 }
+
+
 //задачи
-const requireDir = require('require-dir');
-const task = requireDir('./tasks', { recurse: true});
-// наблюдение
+import clear from './tasks/clear.js';
+import pug from './tasks/pug.js';
+import css from './tasks/css.js';
+import scss from './tasks/scss.js';
+import js from './tasks/js.js';
+import img from './tasks/img.js';
+import font from './tasks/font.js';
+
+
+// наблюдатель
 const watcher = () => {
-  $.gulp.watch($.path.pug.watch, task.pug);
-  $.gulp.watch($.path.scss.watch, task.scss);
-  $.gulp.watch($.path.js.watch, task.js);
-  $.gulp.watch($.path.img.watch, task.img);
-  $.gulp.watch($.path.font.watch, task.font);
+  gulp.watch(path.pug.watch, pug).on('all', browserSync.reload);
+  gulp.watch(path.scss.watch, scss).on('all', browserSync.reload);
+  gulp.watch(path.js.watch, js).on('all', browserSync.reload);
+  gulp.watch(path.img.watch, img).on('all', browserSync.reload);
+  gulp.watch(path.font.watch, font).on('all', browserSync.reload);
 
 }
-const build = $.gulp.series(
+//
+const build = gulp.series(
   clear,
-  $.gulp.parallel(task.pug, task.scss, task.js, task.img, task.font)
-);
-const dev = $.gulp.series(
-  build,
-  $.gulp.parallel(watcher, task.server)
+  gulp.parallel(pug,scss,img,font,js)
 )
 
-exports.pug = task.pug;
-exports.scss = task.scss;
-exports.js = task.js;
-exports.img = task.img;
-exports.font = task.font;
+const dev = gulp.series(
+  build,
+  gulp.parallel(server, watcher)
+)
+
+
+export { clear, pug, scss, js, img, font };
+
 
 
 // сборка
-exports.default = $.app.isProd ? build : dev;
-
+export default app.isProd
+  ? build
+  : dev;
 
