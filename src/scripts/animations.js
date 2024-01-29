@@ -1,8 +1,24 @@
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+import Lenis from '@studio-freight/lenis'
+
 gsap.registerPlugin(ScrollTrigger);
+// ScrollSmoother
+const lenis = new Lenis()
+lenis.on('scroll', (e) => {
+  // console.log(e)
+});
+
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+})
+gsap.ticker.lagSmoothing(0);
+
 // Main timeline
 // filter: 'drop-shadow(0 0 0.15em hsl(0, 100%, 52%)) drop-shadow(0 0 0.3em hsl(0, 100%, 50%)) drop-shadow(0 0 0.45em hsl(0, 70%, 40%)) drop-shadow(0 0 0.6em hsl(0, 70%, 40%)) drop-shadow(0 0 0.75em hsl(0, 70%, 30%)) drop-shadow(0 0 0.9em hsl(0, 70%, 30%))',
+// all sections
+const sections = gsap.utils.toArray('.section');
 
 const tl = gsap.timeline({ repeat: -1 });
 // Gallery animation constants:
@@ -37,35 +53,35 @@ const graphicAnimation = () => {
 
 }
     // Header animation:
-const headerAnimation = () => {
-  tl.fromTo('.header', {
-    opacity: 1,
+// const headerAnimation = () => {
+//   tl.fromTo('.header', {
+//     opacity: 1,
 
-  }, {
-    opacity: 0,
+//   }, {
+//     opacity: 0,
 
-    scrollTrigger: {
-      // markers: true,
-      trigger: '.header',
-      start: 'center 30%',
-      end: 'bottom',
-      toggleActions: "play reverse play reverse",
-      scrub: true,
-    },
-  })
+//     scrollTrigger: {
+//       // markers: true,
+//       trigger: '.header',
+//       start: 'center 30%',
+//       end: 'bottom',
+//       toggleActions: "play reverse play reverse",
+//       scrub: true,
+//     },
+//   })
 
-}
+// }
 // Galery section animation:
 const galeryAnimation = () => {
   galeryItemsLeft.forEach(item => {
     tl.fromTo(item, {
       opacity: 0.4,
-      x: -50,
+      // x: -50,
 
     },
       {
         opacity: 1,
-        x: 0,
+        // x: 0,
         scrollTrigger: {
           end: 'bottom 50%',
           trigger: item,
@@ -89,9 +105,74 @@ const galeryAnimation = () => {
       })
   });
 }
-// launc animations:
+// launch animations:
 export const launhAnimations = () => {
   graphicAnimation();
-  headerAnimation();
+  // headerAnimation();
   galeryAnimation();
 }
+
+
+// tl.to('.header',{
+//   yPercent: 100,
+//   opacity: 0,
+//   ease: 'none',
+//   duration:2 ,
+//   scrollTrigger: {
+//     trigger: '.projects-section',
+//     start: 'top bottom',
+//     end:  'top center',
+//     scrub: true,
+
+//   }
+// })
+
+sections.forEach(section => {
+  tl.to(section,{
+    yPercent: 100,
+    opacity: 0,
+    ease: 'none',
+    duration: 1 ,
+    scrollTrigger: {
+      trigger: section,
+      start: 'top top',
+      end: () => `+=${sectionHeight}`,
+      scrub: true,
+
+    }
+  })
+});
+const actionNav = gsap.to('.menu', {
+  x: 500,
+  duration: 0.7,
+  ease: 'power2.in',
+  paused: true,
+});
+ScrollTrigger.create({
+  trigger: '.menu',
+  start: 1,
+  end: 99999,
+  // markers: true,
+  onUpdate: ({ progress, direction, isActive }) => {
+    if (direction == -1) {
+      actionNav.reverse()
+    }
+    if (direction == 1) {
+      actionNav.play()
+    }
+    else if (direction == 1 && isActive == true) {
+      actionNav.play()
+    }
+  }
+});
+// tl.to('.projects-section',{
+//   scrollTrigger: {
+//     pin: true,
+//     trigger: ".projects-section",
+//     scrub: true,
+//     start: 'top top',
+//     // end: 'botom bottom',
+//     // markers: true,
+//     markers: { startColor: "green", endColor: "white", fontSize: "18px", fontWeight: "bold", indent: 20 }
+//   }
+// })

@@ -27,17 +27,6 @@ launhAnimations();
 //   })
 // });
 
-// const lenis = new Lenis()
-// lenis.on('scroll', (e) => {
-//   console.log(e)
-// })
-// function raf(time) {
-//   lenis.raf(time)
-//   requestAnimationFrame(raf)
-// }
-// requestAnimationFrame(raf)
-
-
 
 
 
@@ -132,17 +121,17 @@ launhAnimations();
 //       }
 //     })
 //   });
-//   tl.fromTo('.projects-section__header',{
-//     opacity: 0
-//   },{
-//     opacity: 1,
-//     // scrollTrigger: {
-//     //   pin: true,
-//     //   trigger: ".projects-section__header",
-//     //   scrub: true,
-//     //   endTrigger: '.stack-section__header',
-//     // }
-//   })
+  // tl.fromTo('.projects-section__header',{
+  //   opacity: 0
+  // },{
+  //   opacity: 1,
+  //   // scrollTrigger: {
+  //   //   pin: true,
+  //   //   trigger: ".projects-section__header",
+  //   //   scrub: true,
+  //   //   endTrigger: '.stack-section__header',
+  //   // }
+  // })
 //   tl.fromTo('.projects-section',{},{
 //     scrollTrigger: {
 //       // markers: true,
