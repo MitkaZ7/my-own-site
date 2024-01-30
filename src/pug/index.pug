@@ -1,10 +1,11 @@
 extends layout/app
 
 block page
+  include chunk/menu
   include chunk/header
   main.main
     //- include chunk/switchers
-    include chunk/menu
+    include chunk/navbar
     include chunk/projects-section
     include chunk/stack-section
     include chunk/footer

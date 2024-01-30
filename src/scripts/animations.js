@@ -16,14 +16,12 @@ gsap.ticker.add((time) => {
 gsap.ticker.lagSmoothing(0);
 
 // Main timeline
-// filter: 'drop-shadow(0 0 0.15em hsl(0, 100%, 52%)) drop-shadow(0 0 0.3em hsl(0, 100%, 50%)) drop-shadow(0 0 0.45em hsl(0, 70%, 40%)) drop-shadow(0 0 0.6em hsl(0, 70%, 40%)) drop-shadow(0 0 0.75em hsl(0, 70%, 30%)) drop-shadow(0 0 0.9em hsl(0, 70%, 30%))',
+const tl = gsap.timeline({ repeat: -1 });
+
 // all sections
 const sections = gsap.utils.toArray('.section');
 
-const tl = gsap.timeline({ repeat: -1 });
-// Gallery animation constants:
-const galeryItemsLeft = gsap.utils.toArray('.galery__left .galery__item');
-const galeryItemRight = gsap.utils.toArray('.galery__right .galery__item');
+
 //Graphic animation constants:
   // "rockHand"
 const rockHandElements = document.querySelectorAll(
@@ -35,7 +33,7 @@ const shakaHandElements = document.querySelectorAll(
 );
 // Animation logic:
     // Graphic animation function:
-const graphicAnimation = () => {
+const graphicTween = () => {
   tl.add(() => { }, "+=1"); // At start of animation do nothing for 1 second
   tl.to(rockHandElements, { // Animate .to()
     stroke: "#000000", // Animate to black
@@ -72,44 +70,45 @@ const graphicAnimation = () => {
 
 // }
 // Galery section animation:
-const galeryAnimation = () => {
-  galeryItemsLeft.forEach(item => {
-    tl.fromTo(item, {
-      opacity: 0.4,
-      // x: -50,
+const galeryTween = () => {
+  // galeryItemsLeft.forEach(item => {
+  //   tl.fromTo(item, {
+  //     opacity: 0.4,
+  //     // x: -50,
 
-    },
-      {
-        opacity: 1,
-        // x: 0,
-        scrollTrigger: {
-          end: 'bottom 50%',
-          trigger: item,
-          scrub: true,
-        }
-      })
-  });
+  //   },
+  //     {
+  //       opacity: 1,
+  //       // x: 0,
+  //       scrollTrigger: {
+  //         end: 'bottom 50%',
+  //         trigger: item,
+  //         scrub: true,
+  //       }
+  //     })
+  // });
 
-  galeryItemRight.forEach(item => {
-    tl.fromTo(item, {
-      opacity: 0,
-      x: 50,
-    },
-      {
-        opacity: 1,
-        x: 0,
-        scrollTrigger: {
-          trigger: item,
-          scrub: true,
-        }
-      })
-  });
+  // galeryItemRight.forEach(item => {
+  //   tl.fromTo(item, {
+  //     opacity: 0,
+  //     x: 50,
+  //   },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       scrollTrigger: {
+  //         trigger: item,
+  //         scrub: true,
+  //       }
+  //     })
+  // });
 }
 // launch animations:
 export const launhAnimations = () => {
-  graphicAnimation();
+  graphicTween();
   // headerAnimation();
-  galeryAnimation();
+  galeryTween();
+  projectBtnTween();
 }
 
 
@@ -127,29 +126,29 @@ export const launhAnimations = () => {
 //   }
 // })
 
-sections.forEach(section => {
-  tl.to(section,{
-    yPercent: 100,
-    opacity: 0,
-    ease: 'none',
-    duration: 1 ,
-    scrollTrigger: {
-      trigger: section,
-      start: 'top top',
-      end: () => `+=${sectionHeight}`,
-      scrub: true,
+// sections.forEach(section => {
+//   tl.to(section,{
+//     yPercent: 100,
+//     opacity: 0,
+//     ease: 'none',
+//     duration: 1 ,
+//     scrollTrigger: {
+//       trigger: section,
+//       start: 'top top',
+//       // end: () => `+=${sectionHeight}`,
+//       scrub: true,
 
-    }
-  })
-});
-const actionNav = gsap.to('.menu', {
+//     }
+//   })
+// });
+const actionNav = gsap.to('.navbar', {
   x: 500,
   duration: 0.7,
   ease: 'power2.in',
   paused: true,
 });
 ScrollTrigger.create({
-  trigger: '.menu',
+  trigger: '.navbar',
   start: 1,
   end: 99999,
   // markers: true,
@@ -176,3 +175,56 @@ ScrollTrigger.create({
 //     markers: { startColor: "green", endColor: "white", fontSize: "18px", fontWeight: "bold", indent: 20 }
 //   }
 // })
+
+// gsap.to('.menu',{
+//   opacity: 1,
+//   duration: 1,
+//   display: 'flex'
+// });
+
+
+const menuBtn = document.querySelector('.navbar__button');
+const closeMenuBtn = document.querySelector('.menu__exit-wrapper');
+menuBtn.addEventListener('click', ()=> {
+  gsap.to('.menu', {
+    opacity: 1,
+    duration: 0.5,
+    display: 'flex',
+    right: 0,
+    position: 'fixed',
+  });
+});
+closeMenuBtn.addEventListener('click', () => {
+  gsap.to('.menu', {
+    opacity: 0,
+    duration: 0.5,
+    display: 'none',
+    // delay: 0,
+    right: '-100%',
+  });
+});
+
+const projectBtnTween = () => {
+  const projectButtonsDecor = gsap.utils.toArray('.project-card__button-decor');
+  const projectButtons = gsap.utils.toArray('.project-card__link');
+  projectButtons.forEach((button, index) => {
+    const buttonDecor = projectButtonsDecor[index];
+
+    let hoverTL = gsap.timeline({ paused: true });
+    hoverTL.to(buttonDecor, { width: "calc(100% + 1.3em)", ease: "Elastic.easeOut(0.25)", duration: 0.4 })
+    hoverTL.to(buttonDecor, { width: "1.7em", left: "calc(100% - 1.7em)", ease: "Elastic.easeOut(0.4)", duration: 0.5 })
+
+    button.addEventListener("mouseenter", () => {
+      hoverTL.play();
+    })
+
+    button.addEventListener("mouseleave", () => {
+      hoverTL.reverse();
+    })
+  });
+
+}
+
+
+
+

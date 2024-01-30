@@ -8,6 +8,7 @@ $gallery-gap: calc($index * 2);
 @import 'blocks/projects-section.scss';
 @import 'blocks/header.scss';
 @import 'blocks/menu.scss';
+@import 'blocks/navbar.scss';
 @import 'blocks/footer.scss';
 @import 'blocks/switchers.scss';
 
@@ -60,6 +61,7 @@ $gallery-gap: calc($index * 2);
 }
 
 body {
+
   font-family: raleway_f, serif;
   background-color: $bg-color;
   color: $text-color;
@@ -71,7 +73,7 @@ a:visited {
 }
 
 .wrapper {
-
+  overflow: hidden;
 }
 
 .main {
@@ -108,5 +110,7 @@ a:visited {
 // }
 
 .section__header {
-
+  margin-bottom: 20px;
+    padding: 50px 50px 0;
+    text-transform: uppercase;
 }
