@@ -8,6 +8,7 @@ $gallery-gap: calc($index * 2);
 @import 'blocks/projects-section.scss';
 @import 'blocks/header.scss';
 @import 'blocks/menu.scss';
+@import 'blocks/navbar.scss';
 @import 'blocks/footer.scss';
 @import 'blocks/switchers.scss';
 
@@ -21,11 +22,21 @@ $gallery-gap: calc($index * 2);
   src: url(../fonts/raleway-regular.woff2);
   font-weight: 700;
 }
+@font-face {
+  font-family: raleway_f;
+  src: url(../fonts/raleway-v29-cyrillic_latin-100.woff2);
+  font-weight: 100;
+}
+@font-face {
+  font-family: raleway_f;
+  src: url(../fonts/raleway-v29-cyrillic_latin-200.woff2);
+  font-weight: 200;
+}
 
 @font-face {
-  font-family: raleway_black;
+  font-family: raleway_f;
   src: url(../fonts/raleway-v28-latin-900.woff2);
-
+  font-weight: 900;
 }
 
 @font-face {
@@ -50,9 +61,11 @@ $gallery-gap: calc($index * 2);
 }
 
 body {
-  font-family: 'IBM Plex Mono', serif;
+
+  font-family: raleway_f, serif;
   background-color: $bg-color;
   color: $text-color;
+  font-weight: 700;
 
 }
 a:visited {
@@ -60,7 +73,7 @@ a:visited {
 }
 
 .wrapper {
-
+  overflow: hidden;
 }
 
 .main {
@@ -69,8 +82,18 @@ a:visited {
 }
 
 .section {
+  // background-color: $bg-color;
   position: relative;
   width: 100%;
+  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "."
+      ".";
+  // border-top: 5px solid red;
+  // box-shadow: 10px 5px 5px rgb(255, 255, 255);
   // height: 100vh;
 //     position: fixed;
 //     width: 100vw;
@@ -87,5 +110,7 @@ a:visited {
 // }
 
 .section__header {
-
+  margin-bottom: 20px;
+    padding: 50px 50px 0;
+    text-transform: uppercase;
 }

@@ -1,29 +1,36 @@
 .stack-section {
-  // background-color: grey;
+  // height: 100vh;
+  &__background-text {
+      font-weight: 900;
+        position: absolute;
+        font-size: 25rem;
+        opacity: .01;
+        z-index: -1;
+  }
 
-  height: 100vh;
-  background-size: cover;
-  background-position: top;
-  // margin-top: 150px;
-  // background-image: url(../img/michele-purin.jpg);
-  display: flex;
-  // justify-content: space-between;
-
-  flex-direction: column;
+  // flex-direction: column;
     &__container {
         // align-self: center;
         display: flex;
-        justify-content: space-around;
-
+        align-items: center;
+          justify-content: space-between;
+        // width: 100%;
+        margin:0 50px;
     }
     &__technology-list {
       list-style: none;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      // display: grid;
+      // grid-template-columns: repeat(2, 1fr);
 
-      gap: 20px;
+      // gap: 20px;
+      width: 100%;
+    display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      // grid-template-rows: min-content min-content;
+      gap: 0px 0px;
+      // margin: 0 auto;
       letter-spacing: calc($index / 8);
-      font-size: calc($index * 0.6);
+    font-size: calc($index * 0.7);
     }
     &__logo {
       margin: 0 50px;
@@ -43,17 +50,17 @@
 
 
 .stack-section__header {
-  // margin: 40px 0 0 50px;
-  text-transform: uppercase;
-  margin:0 0 50px 50px;
-  z-index: 999;
   span {
-    color: $subtitles-color;
+    color: $accent-color2;
   }
 }
 
 .technology-list__category-list {
   list-style: none;
+  color: $accent-color2;
+  > li {
+    color: $text-color;
+  }
 }
 // .button {
 //   width: 200px;
