@@ -185,6 +185,17 @@ ScrollTrigger.create({
 
 const menuBtn = document.querySelector('.navbar__button');
 const closeMenuBtn = document.querySelector('.menu__exit-wrapper');
+menuBtn.addEventListener('mouseenter', ()=> {
+  gsap.to(menuBtn,{
+    scale: 1.2,
+  })
+});
+menuBtn.addEventListener('mouseleave', () => {
+  gsap.to(menuBtn, {
+    scale: 1,
+  })
+})
+
 menuBtn.addEventListener('click', ()=> {
   gsap.to('.menu', {
     opacity: 1,
@@ -212,16 +223,16 @@ const projectBtnTween = () => {
 
     let hoverTL = gsap.timeline({ paused: true });
     hoverTL.to(buttonDecor, {
-      width: "calc(100% + 1.3em)",
-      ease: "Elastic.easeOut(0.25)",
+      width: 'calc(100% + 1.3em)',
+      ease: 'Elastic.easeOut(0.25)',
       duration: 0.3,
 
     }),
 
     hoverTL.to(buttonDecor, {
-      width: "1.5em",
-      left: "calc(100% - 1.5em)",
-      ease: "Elastic.easeOut(0.4)",
+      width: '1.5em',
+      left: 'calc(100% - 1.5em)',
+      ease: 'Elastic.easeOut(0.4)',
 
       duration: 0.3
     });
@@ -232,16 +243,17 @@ const projectBtnTween = () => {
       boxShadow: '0.1em 0 0.2em #0FD944, -0.1em 0 0.2em #0FD944',
     });
 
-    button.addEventListener("mouseenter", () => {
+    button.addEventListener('mouseenter', () => {
       hoverTL.play();
     })
 
-    button.addEventListener("mouseleave", () => {
+    button.addEventListener('mouseleave', () => {
       hoverTL.reverse();
     })
   });
 
 }
+
 
 
 

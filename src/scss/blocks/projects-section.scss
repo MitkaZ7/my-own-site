@@ -5,9 +5,8 @@
 
   &__header {
     // position: relative;
-    // background-color: $bg-color;
+    background-color: $bg-color;
     margin-bottom: 50px;
-    padding: 50px 50px 0;
     text-transform: uppercase;
   }
   &__title {
@@ -20,11 +19,11 @@
   }
 }
 .project-card {
-
+  align-self: start;
   // display: grid;
-  // margin-top: 50px;
+  margin-top: 20px;
   font-size: calc($index * 0.7);
-    justify-content: center;
+    // justify-content: center;
   align-items: center;
   height: 100vh;
   display: grid;
