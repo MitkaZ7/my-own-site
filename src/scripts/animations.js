@@ -211,8 +211,26 @@ const projectBtnTween = () => {
     const buttonDecor = projectButtonsDecor[index];
 
     let hoverTL = gsap.timeline({ paused: true });
-    hoverTL.to(buttonDecor, { width: "calc(100% + 1.3em)", ease: "Elastic.easeOut(0.25)", duration: 0.4 })
-    hoverTL.to(buttonDecor, { width: "1.7em", left: "calc(100% - 1.7em)", ease: "Elastic.easeOut(0.4)", duration: 0.5 })
+    hoverTL.to(buttonDecor, {
+      width: "calc(100% + 1.3em)",
+      ease: "Elastic.easeOut(0.25)",
+      duration: 0.3,
+
+    }),
+
+    hoverTL.to(buttonDecor, {
+      width: "1.5em",
+      left: "calc(100% - 1.5em)",
+      ease: "Elastic.easeOut(0.4)",
+
+      duration: 0.3
+    });
+    hoverTL.to(buttonDecor,{
+      // delay: 0.2,
+      border: 'none',
+      'background-color': '#0FD944',
+      boxShadow: '0.1em 0 0.2em #0FD944, -0.1em 0 0.2em #0FD944',
+    });
 
     button.addEventListener("mouseenter", () => {
       hoverTL.play();
