@@ -2,6 +2,7 @@
 $index:  calc(1.3vw + 1vh);
 $scrollTop: 0;
 $gallery-gap: calc($index * 2);
+@import './media-queries.scss';
 @import './colors.scss';
 @import 'blocks/layer.scss';
 @import 'blocks/stack-section.scss';
@@ -32,16 +33,10 @@ $gallery-gap: calc($index * 2);
   src: url(../fonts/raleway-v29-cyrillic_latin-200.woff2);
   font-weight: 200;
 }
-
 @font-face {
   font-family: raleway_f;
   src: url(../fonts/raleway-v28-latin-900.woff2);
   font-weight: 900;
-}
-
-@font-face {
-  font-family: tilt_neon;
-  src: url(../fonts/tilt-neon-v10-latin-regular.woff2);
 }
 @font-face {
   font-family: neon;
