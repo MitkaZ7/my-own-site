@@ -1,22 +1,19 @@
 .footer {
   font-size: calc($index * 0.5);
   background-color: $bg-color;
-  // height: 100vh;
-  &__about-me {
 
-  }
   &__copyright{
     text-align: center;
+    margin-top: 50px;
     color:$dark-text-color;
-    // font-size: calc($index * 0.3);
+
   }
   margin-bottom: 50px;
 }
 .contacts {
-
+  justify-content: space-around;
   text-align: center;
-  // border-left: 2px solid $accent-color2;
-
+  font-weight: 200;
   &__header {
     color: $accent-color2;
     text-transform: uppercase;
@@ -27,23 +24,20 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    padding: 30px;
-    // :first-child {
-    //   margin-right: 10px;
-    // }
+    justify-content: space-evenly;
+    padding-top: 25px;
   }
 
   &__list-item>a>img {
     width: 32px;
     height: 32px;
-
   }
 }
 
 
 .about-me {
   display: flex;
-  padding: 50px;
+  padding: 0 50px;
   justify-content: space-between;
   align-items: center;
   &__text {
@@ -57,5 +51,4 @@
     }
   }
 
-  &__contacts {}
-    }
+}
