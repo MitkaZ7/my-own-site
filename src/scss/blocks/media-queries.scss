@@ -14,7 +14,12 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 390px) {
+
+  .navbar {
+    top: 25px;
+    right: 25px;
+  }
   .header {
     flex-direction: column;
     // align-items: center;
@@ -31,4 +36,51 @@
     }
 
   }
-}
+  .project-card {
+    margin-top: 100px;
+    &__project-definition {
+        font-size: calc($index * 0.9);
+       margin-left: 10px;
+
+      }
+    &__button-wrapper {
+      margin: 0 auto;
+    }
+  }
+
+  .stack-section {
+    &__technology-list {
+      grid-template-columns: repeat(2, 1fr);
+      font-size: 1em;
+    }
+
+  }
+
+
+
+  .footer {
+    font-size: calc($index * 0.9);
+  }
+  .about-me {
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+    &__text {
+      margin-bottom: 25px;
+    }
+  }
+    .contacts {
+      align-self: center;
+      border: none;
+      margin: 0;
+      &__list {
+        padding: 0;
+          margin: 0;
+          justify-content: space-between;
+        > li > a {
+
+        }
+      }
+    }
+
+  }

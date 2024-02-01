@@ -1,5 +1,4 @@
 .footer {
-  margin-top: 50px;
   font-size: calc($index * 0.5);
   background-color: $bg-color;
   // height: 100vh;
@@ -14,9 +13,9 @@
   margin-bottom: 50px;
 }
 .contacts {
-  min-width: 335px;
+
   text-align: center;
-  border-left: 2px solid $accent-color2;
+  // border-left: 2px solid $accent-color2;
 
   &__header {
     color: $accent-color2;
@@ -29,9 +28,9 @@
     display: flex;
     justify-content: center;
     padding: 30px;
-    :first-child {
-      margin-right: 10px;
-    }
+    // :first-child {
+    //   margin-right: 10px;
+    // }
   }
 
   &__list-item>a>img {
