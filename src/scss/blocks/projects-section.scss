@@ -70,7 +70,9 @@
     color: $text-color;
       list-style: none;
       line-height: 1.75rem;
-
+      > li {
+        line-height: 1.3em;
+      }
       > li::before {
         // margin-bottom: 20px;
         content: '</';
