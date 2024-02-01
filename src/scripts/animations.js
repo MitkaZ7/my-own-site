@@ -23,6 +23,8 @@ const sections = gsap.utils.toArray('.section');
 
 
 //Graphic animation constants:
+// buttonsProject
+
   // "rockHand"
 const rockHandElements = document.querySelectorAll(
   "#index_finger_rock, #rihgt_part_rock, #thumb_rock"
@@ -85,7 +87,7 @@ const galeryTween = () => {
         opacity: 1,
         x: 0,
         scrollTrigger: {
-          end: 'bottom 30%',
+          end: 'bottom 100%',
           trigger: item,
           scrub: true,
         }
@@ -103,6 +105,7 @@ const galeryTween = () => {
         scrollTrigger: {
           trigger: item,
           scrub: true,
+          end: 'bottom 100%',
         }
       })
   });
