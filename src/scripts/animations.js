@@ -264,8 +264,8 @@ onscroll = (event) => {
   gsap.to(menu, {
     display: 'none',
     opacity: 0,
-    duration: 0.5,
-    top: '-100%'
+    duration: 0.2,
+    right: '-100%'
   })
 
 };
