@@ -219,6 +219,7 @@ const projectBtnTween = () => {
   const projectButtonsDecor = gsap.utils.toArray('.project-card__button-decor');
   const projectButtons = gsap.utils.toArray('.project-card__link');
   projectButtons.forEach((button, index) => {
+
     const buttonDecor = projectButtonsDecor[index];
 
     let hoverTL = gsap.timeline({ paused: true });
@@ -230,7 +231,7 @@ const projectBtnTween = () => {
     }),
 
     hoverTL.to(buttonDecor, {
-      width: '1.5em',
+      width: '1.3em',
       left: 'calc(100% - 1.5em)',
       ease: 'Elastic.easeOut(0.4)',
 
