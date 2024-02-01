@@ -31,6 +31,10 @@ const rockHandElements = document.querySelectorAll(
 const shakaHandElements = document.querySelectorAll(
   "#middle_finger_shaka, #thumb_shaka, #index_finger_shaka"
 );
+
+//
+const galeryItemsLeft = gsap.utils.toArray('.project-card__project-image-wrapper');
+const galeryItemsRight = gsap.utils.toArray('.project-card__project-definition');
 // Animation logic:
     // Graphic animation function:
 const graphicTween = () => {
@@ -71,37 +75,37 @@ const graphicTween = () => {
 // }
 // Galery section animation:
 const galeryTween = () => {
-  // galeryItemsLeft.forEach(item => {
-  //   tl.fromTo(item, {
-  //     opacity: 0.4,
-  //     // x: -50,
+  galeryItemsLeft.forEach(item => {
+    tl.fromTo(item, {
+      opacity: 0.4,
+      x: -200,
 
-  //   },
-  //     {
-  //       opacity: 1,
-  //       // x: 0,
-  //       scrollTrigger: {
-  //         end: 'bottom 50%',
-  //         trigger: item,
-  //         scrub: true,
-  //       }
-  //     })
-  // });
+    },
+      {
+        opacity: 1,
+        x: 0,
+        scrollTrigger: {
+          end: 'bottom 30%',
+          trigger: item,
+          scrub: true,
+        }
+      })
+  });
 
-  // galeryItemRight.forEach(item => {
-  //   tl.fromTo(item, {
-  //     opacity: 0,
-  //     x: 50,
-  //   },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       scrollTrigger: {
-  //         trigger: item,
-  //         scrub: true,
-  //       }
-  //     })
-  // });
+  galeryItemsRight.forEach(item => {
+    tl.fromTo(item, {
+      opacity: 0,
+      x: 300,
+    },
+      {
+        opacity: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: item,
+          scrub: true,
+        }
+      })
+  });
 }
 // launch animations:
 export const launhAnimations = () => {
@@ -112,19 +116,19 @@ export const launhAnimations = () => {
 }
 
 
-// tl.to('.header',{
-//   yPercent: 100,
-//   opacity: 0,
-//   ease: 'none',
-//   duration:2 ,
-//   scrollTrigger: {
-//     trigger: '.projects-section',
-//     start: 'top bottom',
-//     end:  'top center',
-//     scrub: true,
+tl.to('.header',{
+  yPercent: 100,
+  opacity: 0,
+  ease: 'none',
+  duration:2 ,
+  scrollTrigger: {
+    trigger: '.projects-section',
+    start: 'top bottom',
+    end:  'top center',
+    scrub: true,
 
-//   }
-// })
+  }
+})
 
 // sections.forEach(section => {
 //   tl.to(section,{
